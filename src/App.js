@@ -1,5 +1,6 @@
 import Footer from './components/footer';
-import  Graph  from './components/graph'
+import  Graph  from './components/graph';
+import Table from './components/table';
 
 function App() {
   return (
@@ -8,6 +9,7 @@ function App() {
       <h1>Under Construction</h1>
     </div>
     <Graph/>
+    <Table/>
     <Footer/>
     </>
   );
