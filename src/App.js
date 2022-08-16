@@ -1,10 +1,15 @@
-import './App.css';
+import Footer from './components/footer';
+import  Graph  from './components/graph'
 
 function App() {
   return (
+    <>
     <div>
-    Under Construction
+      <h1>Under Construction</h1>
     </div>
+    <Graph/>
+    <Footer/>
+    </>
   );
 }
 
