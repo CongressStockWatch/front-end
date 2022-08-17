@@ -7,6 +7,7 @@ import { When } from 'react-if';
 import { BrowserRouter, Route, Link, Routes } from "react-router-dom";
 import { useContext } from 'react';
 import { AuthContext } from './context/auth';
+import Header from './components/header';
 
 
 function App() {
@@ -17,9 +18,7 @@ function App() {
   return (
     <BrowserRouter>
       <When condition={LoggedIn}>
-        <Link default to="/" style={{ margin: '25px' }}>Home</Link>
-        <Link to="/profile">Trading</Link>
-        <button style={{ margin: '25px' }} onClick={logout}>Log Out</button>
+        <Header/>
       </When>
       <When condition={!LoggedIn}>
         <Login />
