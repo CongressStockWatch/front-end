@@ -1,15 +1,12 @@
 import React from "react";
 import {
-  BarChart,
   Bar,
   XAxis,
   YAxis,
   CartesianGrid,
   Tooltip,
   Legend,
-  ReferenceLine,
   Line,
-  LineChart,
   ComposedChart
 } from "recharts";
 
