@@ -4,14 +4,14 @@ import Table from './components/table';
 import List from './components/repsList';
 import Login from './components/loginForm'
 import { When } from 'react-if';
-import { BrowserRouter, Route, Link, Routes } from "react-router-dom";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
 import { useContext } from 'react';
 import { AuthContext } from './context/auth';
 import Header from './components/header';
 
 
 function App() {
-  const { LoggedIn, logout, user } = useContext(AuthContext);
+  const { LoggedIn, user } = useContext(AuthContext);
   console.log(user);
 
 
