@@ -143,7 +143,7 @@ useEffect(()=>{
           <CartesianGrid strokeDasharray="3 3" />
           <XAxis dataKey="name" allowDuplicatedCategory={false} stroke="beige"/>
           <YAxis yAxisId="left" orientation="left" stroke="beige" />
-          <YAxis data={yahooData} yAxisId="right" dataKey={close} orientation="right" stroke="beige"/>
+          <YAxis yAxisId="right" orientation="right" stroke="beige" />
           <Tooltip />
           <Legend />
           <Line data={yahooData} yAxisId="right" type="monotone" dataKey="close" stroke="green" />
