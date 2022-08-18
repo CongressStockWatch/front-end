@@ -1,6 +1,6 @@
-// import axios from 'axios';
+import axios from 'axios';
 
-// const API_SERVER = process.env.REACT_APP_SERVER;
+const API_SERVER = process.env.REACT_APP_SERVER;
 
 
 let initialState = [
@@ -17,15 +17,16 @@ export function yahooReducer( state = initialState , action){
     default:
       return state;
   }
+  
 }
 
 
 
 export const getSP500 = () => async (dispatch, getState) => {
-  // add the yahoo api here
-  // let response = await axios.get(`${API_SERVER}/yahoo`);
+  
+  let response = await axios.get(`${API_SERVER}/yahoo`);
+  dispatch(setSP500(response.data));
 
-  // dispatch(setSP500(response.data));
 }
 
 

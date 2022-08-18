@@ -1,11 +1,11 @@
 import './Graph.scss';
 import React from "react";
 import Container from '@mui/material/Container';
-// import {useEffect} from 'react';
-// import {useSelector} from 'react-redux';
-// import {useDispatch} from 'react-redux';
-// import { getSP500 } from "../../store/yahooApi";
-// import { getTrades,setTrades } from "../../store/quiverApi";
+import {useEffect} from 'react';
+import {useSelector} from 'react-redux';
+import {useDispatch} from 'react-redux';
+import { getSP500 } from "../../store/yahooApi";
+import { getTrades} from "../../store/quiverApi";
 
 import {
   Bar,
@@ -105,14 +105,25 @@ export default function App() {
 
 
 
-//   let dispatch = useDispatch();
+  let dispatch = useDispatch();
 
-//  let yahooData = useSelector(state => state.yahoo);
+ let yahooData = useSelector(state => state.yahoo);
 
-//  useEffect(()=>{
-//   dispatch(getSP500());
-// },[])
+ useEffect(()=>{
+  dispatch(getSP500());
+},[])
 
+let quiverData = useSelector(state => state.quiver.tradesOnDate);
+
+useEffect(()=>{
+  dispatch(getTrades());
+},[])
+
+
+
+  console.log('PROOF IN TABLE yahooData',yahooData);
+
+  console.log('PROOF IN TABLE quiverData',quiverData);
 
   return (
     <>
@@ -120,7 +131,7 @@ export default function App() {
         <ComposedChart
           width={1000}
           height={300}
-          data={data}
+          data={yahooData}
           dataTwo={dataTwo}
           margin={{
             top: 5,
@@ -132,10 +143,10 @@ export default function App() {
           <CartesianGrid strokeDasharray="3 3" />
           <XAxis dataKey="name" allowDuplicatedCategory={false} stroke="beige"/>
           <YAxis yAxisId="left" orientation="left" stroke="beige" />
-          <YAxis yAxisId="right" orientation="right" stroke="beige" />
+          <YAxis data={yahooData} yAxisId="right" dataKey={close} orientation="right" stroke="beige"/>
           <Tooltip />
           <Legend />
-          <Line data={data} yAxisId="right" type="monotone" dataKey="uv" stroke="green" />
+          <Line data={yahooData} yAxisId="right" type="monotone" dataKey="close" stroke="green" />
           <Bar data={dataTwo} yAxisId="left" dataKey="pv" fill="beige" />
         </ComposedChart>
       </Container>

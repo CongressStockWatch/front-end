@@ -1,12 +1,18 @@
 import axios from 'axios';
 
-// const API_SERVER = process.env.REACT_APP_SERVER;
+const API_SERVER = process.env.REACT_APP_SERVER;
 
 
-export function quiverReducer( state = [], action){
+
+let initialState = [
+  {name: "dummy"}
+]
+
+
+export function quiverReducer( state = initialState, action){
   switch(action.type){
     case 'Trades':
-      return action.payload.results
+      return action.payload
     default:
       return state;
   }
@@ -16,7 +22,7 @@ export function quiverReducer( state = [], action){
 
 export const getTrades = () => async (dispatch) => {
   // add the yahoo api here
-  let response = await axios.get(`https://congresswatch.herokuapp.com/yahoo`);
+  let response = await axios.get(`${API_SERVER}/quiver`);
 
   dispatch(setTrades(response.data));
 }
