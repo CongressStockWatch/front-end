@@ -8,6 +8,8 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 import { useContext } from 'react';
 import { AuthContext } from './context/auth';
 import Header from './components/header';
+import Box from '@mui/material/Box';
+import Container from '@mui/material/Container';
 
 
 function App() {
@@ -17,23 +19,31 @@ function App() {
 
   return (
     <BrowserRouter>
-      <When condition={LoggedIn}>
-        <Header/>
-      </When>
       <When condition={!LoggedIn}>
         <Login />
       </When>
       <When condition={LoggedIn}>
-
         <Routes>
           <Route path="/" element={
-            <Footer />
+            <>
+              <Header />
+              <Footer />
+            </>
           } />
           <Route path="/profile" element={
             <>
-              <Graph />
-              <Table />
-              <List />
+              <Header />
+              <Container display='flex' flex='1' justifyContent='space-around' sx={{ height: '100vh' }} maxWidth="sm">
+                <Box alignContent={"center"}>
+                  <Graph />
+                </Box>
+                <Box>
+                  <List />
+                </Box>
+                <Box>
+                  <Table />
+                </Box>
+              </Container>
             </>
           } />
         </Routes>
