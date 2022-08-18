@@ -1,3 +1,4 @@
+import './Header.scss';
 import React, { useContext } from 'react'
 import { AuthContext } from '../../context/auth';
 import AppBar from '@mui/material/AppBar';

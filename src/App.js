@@ -1,3 +1,4 @@
+import './App.scss';
 import Footer from './components/footer';
 import Graph from './components/graph';
 import Table from './components/table';
@@ -13,45 +14,38 @@ import Container from '@mui/material/Container';
 
 
 function App() {
-  const { LoggedIn, user } = useContext(AuthContext);
-  console.log(user);
-
-
+  const { LoggedIn } = useContext(AuthContext);
   return (
-    <BrowserRouter>
-      <When condition={!LoggedIn}>
-        <Login />
-      </When>
-      <When condition={LoggedIn}>
-        <Routes>
-          <Route path="/" element={
-            <>
-              <Header />
-              <Footer />
-            </>
-          } />
-          <Route path="/profile" element={
-            <>
-              <Header />
-              <Container display='flex' flex='1' justifyContent='space-around' sx={{ height: '100vh' }} maxWidth="sm">
-                <Box alignContent={"center"}>
-                  <Graph />
+    <Container id="browserRouter">
+      <BrowserRouter>
+        <When condition={!LoggedIn}>
+          <Login />
+        </When>
+        <When condition={LoggedIn}>
+          <Routes>
+            <Route path="/" element={
+              <>
+                <Header />
+                <Footer />
+              </>
+            } />
+            <Route path="/profile" element={
+              <>
+                <Header id="header" />
+                <Graph class="graph" />
+                <Box>
+                  <List id="list" />
                 </Box>
                 <Box>
-                  <List />
+                  <Table id="table" />
                 </Box>
-                <Box>
-                  <Table />
-                </Box>
-              </Container>
-            </>
-          } />
-        </Routes>
-      </When>
-    </BrowserRouter>
+              </>
+            } />
+          </Routes>
+        </When>
+      </BrowserRouter>
+    </Container>
   );
 }
-
-
 
 export default App;

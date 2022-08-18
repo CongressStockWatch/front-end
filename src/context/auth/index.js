@@ -5,14 +5,12 @@ import axios from 'axios';
 
 export const AuthContext = React.createContext();
 
-function Auth({children}) {
+function Auth({ children }) {
 
   const [LoggedIn, setLoggedIn] = useState(false);
   const [user, setUser] = useState({});
   const [error, setError] = useState(null);
 
-
-  console.log(LoggedIn);
   const can = (capability) => {
     // note the shorthand
     return user?.capabilities?.includes(capability);
@@ -36,29 +34,25 @@ function Auth({children}) {
 
     const response = await axios(config);
     const { token } = response.data
-    console.log(response);
-    if (token){
+    if (token) {
       try {
-       _validateToken(token);
-      } catch (e){
+        _validateToken(token);
+      } catch (e) {
         setError('Wrong username and Password Combination');
         console.error(error);
       }
     }
   }
 
-  console.log(error);
-
-
-  function _validateToken(token){
+  function _validateToken(token) {
     try {
       let validUser = jwt_decode(token);
-      if(validUser){
+      if (validUser) {
         setUser(validUser);
         setLoggedIn(true);
         cookie.save('auth', token)
       }
-    } catch(e){
+    } catch (e) {
       setLoggedIn(false);
       setError(e)
     }

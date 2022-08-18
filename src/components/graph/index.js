@@ -1,4 +1,6 @@
+import './Graph.scss';
 import React from "react";
+import Container from '@mui/material/Container';
 import {
   Bar,
   XAxis,
@@ -95,32 +97,34 @@ const dataTwo = [
 
 export default function App() {
 
-  
+
 
 
   return (
     <>
-    <ComposedChart
-      width={1000}
-      height={300}
-      data={data}
-      dataTwo={dataTwo}
-      margin={{
-        top: 5,
-        right: 30,
-        left: 20,
-        bottom: 5
-      }}
-    >
-      <CartesianGrid strokeDasharray="3 3" />
-      <XAxis dataKey="name" allowDuplicatedCategory={false}/>
-      <YAxis yAxisId="left" orientation="left" stroke="#8884d8" />
-      <YAxis yAxisId="right" orientation="right" stroke="#82ca9d" />
-      <Tooltip />
-      <Legend />
-      <Line data={data} yAxisId="right" type="monotone" dataKey="uv" stroke="#ff7300" />
-      <Bar data={dataTwo} yAxisId="left" dataKey="pv" fill="#8884d8" />
-    </ComposedChart>
+      <Container class="composedChart">
+        <ComposedChart
+          width={1000}
+          height={300}
+          data={data}
+          dataTwo={dataTwo}
+          margin={{
+            top: 5,
+            right: 30,
+            left: 20,
+            bottom: 5
+          }}
+        >
+          <CartesianGrid strokeDasharray="3 3" />
+          <XAxis dataKey="name" allowDuplicatedCategory={false} stroke="beige"/>
+          <YAxis yAxisId="left" orientation="left" stroke="beige" />
+          <YAxis yAxisId="right" orientation="right" stroke="beige" />
+          <Tooltip />
+          <Legend />
+          <Line data={data} yAxisId="right" type="monotone" dataKey="uv" stroke="green" />
+          <Bar data={dataTwo} yAxisId="left" dataKey="pv" fill="beige" />
+        </ComposedChart>
+      </Container>
     </>
   );
 }
