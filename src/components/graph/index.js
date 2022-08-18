@@ -1,6 +1,12 @@
 import './Graph.scss';
 import React from "react";
 import Container from '@mui/material/Container';
+import {useEffect} from 'react';
+import {useSelector} from 'react-redux';
+import {useDispatch} from 'react-redux';
+import { getSP500 } from "../../store/yahooApi";
+// import { getTrades,setTrades } from "../../store/quiverApi";
+
 import {
   Bar,
   XAxis,
@@ -98,6 +104,14 @@ const dataTwo = [
 export default function App() {
 
 
+
+//   let dispatch = useDispatch();
+
+//  let yahooData = useSelector(state => state.yahoo);
+
+//  useEffect(()=>{
+//   dispatch(getSP500());
+// },[])
 
 
   return (
