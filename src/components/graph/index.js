@@ -94,7 +94,12 @@ const dataTwo = [
 ];
 
 export default function App() {
+
+  
+
+
   return (
+    <>
     <ComposedChart
       width={1000}
       height={300}
@@ -116,5 +121,6 @@ export default function App() {
       <Line data={data} yAxisId="right" type="monotone" dataKey="uv" stroke="#ff7300" />
       <Bar data={dataTwo} yAxisId="left" dataKey="pv" fill="#8884d8" />
     </ComposedChart>
+    </>
   );
 }
