@@ -1,7 +1,7 @@
-import axios from 'axios';
+// import axios from 'axios';
 
 
-const API_SERVER = process.env.REACT_APP_SERVER;
+// const API_SERVER = process.env.REACT_APP_SERVER;
 
 
 export function userReducer( state = [], action){
