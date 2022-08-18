@@ -1,10 +1,10 @@
 import './Graph.scss';
 import React from "react";
 import Container from '@mui/material/Container';
-import {useEffect} from 'react';
-import {useSelector} from 'react-redux';
-import {useDispatch} from 'react-redux';
-import { getSP500 } from "../../store/yahooApi";
+// import {useEffect} from 'react';
+// import {useSelector} from 'react-redux';
+// import {useDispatch} from 'react-redux';
+// import { getSP500 } from "../../store/yahooApi";
 // import { getTrades,setTrades } from "../../store/quiverApi";
 
 import {
