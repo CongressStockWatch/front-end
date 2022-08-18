@@ -25,7 +25,7 @@ export const getSP500 = () => async (dispatch, getState) => {
   // add the yahoo api here
   // let response = await axios.get(`${API_SERVER}/yahoo`);
 
-  dispatch(setSP500(response.data));
+  // dispatch(setSP500(response.data));
 }
 
 
