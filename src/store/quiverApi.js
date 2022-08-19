@@ -9,14 +9,14 @@ export const setTrades = createAction(TRADES);
 
 export const getTrades = () => async (dispatch, getState) => {
   let response = await axios.get(`${API_SERVER}/quiver`);
-  console.log(response.data);
+  // console.log(response.data);
   dispatch(setTrades(response.data));
 }
 
 const quiverReducer = createReducer({
   list: [],
-},{
-  [TRADES]: ( state, action ) => {
+}, {
+  [TRADES]: (state, action) => {
     return {
       list: action.payload
     }

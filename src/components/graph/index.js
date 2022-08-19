@@ -1,22 +1,22 @@
 import './Graph.scss';
 import React from "react";
-// import Container from '@mui/material/Container';
-// import {useEffect} from 'react';
-// import {useSelector} from 'react-redux';
-// import {useDispatch} from 'react-redux';
-// import { getSP500 } from "../../store/yahooApi";
-// import { getTrades} from "../../store/quiverApi";
+import Container from '@mui/material/Container';
+import { useEffect } from 'react';
+import { useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
+import { getSP500 } from "../../store/yahooApi";
+import { getTrades } from "../../store/quiverApi";
 
-// import {
-//   Bar,
-//   XAxis,
-//   YAxis,
-//   CartesianGrid,
-//   Tooltip,
-//   Legend,
-//   Line,
-//   ComposedChart
-// } from "recharts";
+import {
+  Bar,
+  XAxis,
+  YAxis,
+  CartesianGrid,
+  Tooltip,
+  Legend,
+  Line,
+  ComposedChart
+} from "recharts";
 
 // const data = [
 //   {
@@ -63,43 +63,43 @@ import React from "react";
 //   }
 // ];
 
-// const dataTwo = [
-//   {
-//     name: "Page A",
-//     pv: 2400,
-//     amt: 2400
-//   },
-//   {
-//     name: "Page B",
-//     pv: 1398,
-//     amt: 2210
-//   },
-//   {
-//     name: "Page C",
-//     pv: -9800,
-//     amt: 2290
-//   },
-//   {
-//     name: "Page D",
-//     pv: 3908,
-//     amt: 2000
-//   },
-//   {
-//     name: "Page E",
-//     pv: 4800,
-//     amt: 2181
-//   },
-//   {
-//     name: "Page F",
-//     pv: -3800,
-//     amt: 2500
-//   },
-//   {
-//     name: "Page G",
-//     pv: 4300,
-//     amt: 2100
-//   }
-// ];
+const dataTwo = [
+  {
+    name: "Page A",
+    pv: 2400,
+    amt: 2400
+  },
+  {
+    name: "Page B",
+    pv: 1398,
+    amt: 2210
+  },
+  {
+    name: "Page C",
+    pv: -9800,
+    amt: 2290
+  },
+  {
+    name: "Page D",
+    pv: 3908,
+    amt: 2000
+  },
+  {
+    name: "Page E",
+    pv: 4800,
+    amt: 2181
+  },
+  {
+    name: "Page F",
+    pv: -3800,
+    amt: 2500
+  },
+  {
+    name: "Page G",
+    pv: 4300,
+    amt: 2100
+  }
+];
 
 export default function App() {
 
@@ -107,26 +107,27 @@ export default function App() {
 
 
 
-  
-//   let dispatch = useDispatch();
 
-//  let yahooData = useSelector(state => state.yahoo);
+  let dispatch = useDispatch();
 
-//  useEffect(()=>{
-//   let sP500 = getSP500();
-//   console.log('getSP500 useEffect');
-//   dispatch(sP500);
-//   // eslint-disable-next-line react-hooks/exhaustive-deps
-// },[])
+  let yahooData = useSelector(state => state.yahoo.list);
 
-// // let quiverData = useSelector(state => state.quiver.tradesOnDate);
+  // useEffect(() => {
+  //   let sP500 = getSP500();
+  //   console.log('getSP500 useEffect');
+  //   dispatch(sP500);
+  //   // eslint-disable-next-line react-hooks/exhaustive-deps
+  // }, [])
 
-// useEffect(()=>{
-//   let getRepTrades = getTrades();
-//   console.log('get Trades useEffect');
-//   dispatch(getRepTrades);
-//   // eslint-disable-next-line react-hooks/exhaustive-deps
-// },[])
+  // let quiverData = useSelector(state => state.quiver.tradesOnDate);
+
+  useEffect(() => {
+    // let getRepTrades = getTrades();
+    // console.log('get Trades useEffect');
+    dispatch(getTrades());
+    // dispatch(getSP500());
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [])
 
 
 
@@ -136,7 +137,7 @@ export default function App() {
 
   return (
     <>
-      {/* <Container class="composedChart">
+      <Container className="composedChart">
         <ComposedChart
           width={1000}
           height={300}
@@ -158,7 +159,7 @@ export default function App() {
           <Line data={yahooData} yAxisId="right" type="monotone" dataKey="close" stroke="green" />
           <Bar data={dataTwo} yAxisId="left" dataKey="pv" fill="beige" />
         </ComposedChart>
-      </Container> */}
+      </Container>
     </>
   );
 }

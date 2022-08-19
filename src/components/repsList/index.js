@@ -1,20 +1,20 @@
 import React from "react";
-// import Table from "@mui/material/Table";
-// import TableBody from "@mui/material/TableBody";
-// import TableCell from "@mui/material/TableCell";
-// import TableContainer from "@mui/material/TableContainer";
-// import TableHead from "@mui/material/TableHead";
-// import TableRow from "@mui/material/TableRow";
-// import Paper from "@mui/material/Paper";
-// import {useSelector} from 'react-redux';
-// import {useEffect, useDispatch } from 'react';
+import { useEffect, useState } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
+import Table from "@mui/material/Table";
+import TableBody from "@mui/material/TableBody";
+import TableCell from "@mui/material/TableCell";
+import TableContainer from "@mui/material/TableContainer";
+import TableHead from "@mui/material/TableHead";
+import TableRow from "@mui/material/TableRow";
+import Paper from "@mui/material/Paper";
 
-// import { getTrades } from "../../store/quiverApi";
+import { getTrades } from "../../store/quiverApi";
 
 
-// const tableStyling = {
-//   padding: "0px 0px"
-// };
+const tableStyling = {
+  padding: "0px 0px"
+};
 
 // function createData(name) {
 //   return { name };
@@ -41,22 +41,28 @@ import React from "react";
 // ];
 
 export default function StylishTable() {
+  let [render, setRender] = useState(false);
+  let dispatch = useDispatch();
+  let repData = useSelector(state => state.quiver.list.repsTrades) || [];
+  // if (repData.length > 0) {
+  //   setRender(true);
+  // }
+  console.log('repData: ', repData);
 
-  // let dispatch = useDispatch();
-  // let repData =  useSelector(state => state.quiver.repsTrades)
 
+  useEffect(() => {
+    // let getRepTrades = getTrades();
+    // console.log('get Trades useEffect');
+    // dispatch(getRepTrades);
+    dispatch(getTrades());
+    setRender(true);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [])
 
-  // useEffect(()=>{
-  //   let getRepTrades = getTrades();
-  //   console.log('get Trades useEffect');
-  //   dispatch(getRepTrades);
-  //   // eslint-disable-next-line react-hooks/exhaustive-deps
-  // },[])
-  
 
   return (
     <div>
-      {/* <TableContainer
+      {render && <TableContainer
         component={Paper}
         sx={{
           border: "4px solid rgba(0,0,0,0.2)",
@@ -96,8 +102,8 @@ export default function StylishTable() {
             </TableRow>
           </TableHead>
           <TableBody>
-            {repData.map((row) => (
-              <TableRow key={row}>
+            {repData.map((row, idx) => (
+              <TableRow key={`repList-${idx}`}>
                 <TableCell
                   sx={{
                     ...tableStyling
@@ -109,8 +115,7 @@ export default function StylishTable() {
             ))}
           </TableBody>
         </Table>
-      </TableContainer>
-      <br /> */}
+      </TableContainer>}
     </div>
   );
 }
