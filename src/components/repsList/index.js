@@ -1,49 +1,67 @@
 import React from "react";
-import Table from "@mui/material/Table";
-import TableBody from "@mui/material/TableBody";
-import TableCell from "@mui/material/TableCell";
-import TableContainer from "@mui/material/TableContainer";
-import TableHead from "@mui/material/TableHead";
-import TableRow from "@mui/material/TableRow";
-import Paper from "@mui/material/Paper";
+// import Table from "@mui/material/Table";
+// import TableBody from "@mui/material/TableBody";
+// import TableCell from "@mui/material/TableCell";
+// import TableContainer from "@mui/material/TableContainer";
+// import TableHead from "@mui/material/TableHead";
+// import TableRow from "@mui/material/TableRow";
+// import Paper from "@mui/material/Paper";
+// import {useSelector} from 'react-redux';
+// import {useEffect, useDispatch } from 'react';
 
-const tableStyling = {
-  padding: "0px 0px"
-};
+// import { getTrades } from "../../store/quiverApi";
 
-function createData(name) {
-  return { name };
-}
 
-const rows = [
-  createData("Nancy Pelosi"),
-  createData("Nancy Pelosi"),
-  createData("Nancy Pelosi"),
-  createData("Nancy Pelosi"),
-  createData("Nancy Pelosi"),
-  createData("Nancy Pelosi"),
-  createData("Nancy Pelosi"),
-  createData("Nancy Pelosi"),
-  createData("Nancy Pelosi"),
-  createData("Nancy Pelosi"),
-  createData("Nancy Pelosi"),
-  createData("Nancy Pelosi"),
-  createData("Nancy Pelosi"),
-  createData("Nancy Pelosi"),
-  createData("Nancy Pelosi"),
-  createData("Nancy Pelosi"),
-  createData("Nancy Pelosi"),
-];
+// const tableStyling = {
+//   padding: "0px 0px"
+// };
+
+// function createData(name) {
+//   return { name };
+// }
+
+// const rows = [
+//   createData("Nancy Pelosi"),
+//   createData("Nancy Pelosi"),
+//   createData("Nancy Pelosi"),
+//   createData("Nancy Pelosi"),
+//   createData("Nancy Pelosi"),
+//   createData("Nancy Pelosi"),
+//   createData("Nancy Pelosi"),
+//   createData("Nancy Pelosi"),
+//   createData("Nancy Pelosi"),
+//   createData("Nancy Pelosi"),
+//   createData("Nancy Pelosi"),
+//   createData("Nancy Pelosi"),
+//   createData("Nancy Pelosi"),
+//   createData("Nancy Pelosi"),
+//   createData("Nancy Pelosi"),
+//   createData("Nancy Pelosi"),
+//   createData("Nancy Pelosi"),
+// ];
 
 export default function StylishTable() {
+
+  // let dispatch = useDispatch();
+  // let repData =  useSelector(state => state.quiver.repsTrades)
+
+
+  // useEffect(()=>{
+  //   let getRepTrades = getTrades();
+  //   console.log('get Trades useEffect');
+  //   dispatch(getRepTrades);
+  //   // eslint-disable-next-line react-hooks/exhaustive-deps
+  // },[])
+  
+
   return (
     <div>
-      <TableContainer
+      {/* <TableContainer
         component={Paper}
         sx={{
           border: "4px solid rgba(0,0,0,0.2)",
           padding: 1,
-          width: 200,
+          width: 300,
           height: 200,
           "&::-webkit-scrollbar": {
             width: 20
@@ -78,21 +96,21 @@ export default function StylishTable() {
             </TableRow>
           </TableHead>
           <TableBody>
-            {rows.map((row) => (
-              <TableRow key={row.name}>
+            {repData.map((row) => (
+              <TableRow key={row}>
                 <TableCell
                   sx={{
                     ...tableStyling
                   }}
                 >
-                  {row.name}
+                  {row.representative}
                 </TableCell>
               </TableRow>
             ))}
           </TableBody>
         </Table>
       </TableContainer>
-      <br />
+      <br /> */}
     </div>
   );
 }

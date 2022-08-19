@@ -1,39 +1,45 @@
 import axios from 'axios';
-
+import { createAction, createReducer } from '@reduxjs/toolkit';
 const API_SERVER = process.env.REACT_APP_SERVER;
 
+const TRADES = 'TRADES'
+
+export const setTrades = createAction(TRADES);
 
 
-let initialState = [
-  {name: "dummy"}
-]
-
-
-export function quiverReducer( state = initialState, action){
-  switch(action.type){
-    case 'Trades':
-      return action.payload
-    default:
-      return state;
-  }
-}
-
-
-
-export const getTrades = () => async (dispatch) => {
-  // add the yahoo api here
+export const getTrades = () => async (dispatch, getState) => {
   let response = await axios.get(`${API_SERVER}/quiver`);
-
+  console.log(response.data);
   dispatch(setTrades(response.data));
 }
 
-
-export const setTrades = (data) => {
-  return{
-    type: "Trades",
-    payload: data
+const quiverReducer = createReducer({
+  list: [],
+},{
+  [TRADES]: ( state, action ) => {
+    return {
+      list: action.payload
+    }
   }
-}
+});
+
+
+export default quiverReducer;
+// export function quiverReducer( state = initialState, action){
+//   switch(action.type){
+//     case 'TRADES':
+//       return action.payload
+//     default:
+//       return state;
+//   }
+// }
+
+// export const setTrades = (data) => {
+//   return{
+//     type: "TRADES",
+//     payload: data
+//   }
+// }
 
 
 // const yahooResponse = await axios.get(`${API_SERVER}/yahoo`);

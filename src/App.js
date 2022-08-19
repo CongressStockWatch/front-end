@@ -33,12 +33,12 @@ function App() {
               <>
                 <Header id="header" />
                 <Graph class="graph" />
-                <Box>
+                {/* <Box>
                   <List id="list" />
                 </Box>
                 <Box>
                   <Table id="table" />
-                </Box>
+                </Box> */}
               </>
             } />
           </Routes>
