@@ -17,8 +17,8 @@ export default function Login() {
 
 
   return (
-    <div class="page">
-      <box class="form-container">
+    <div className="page">
+      <div className="form-container">
         <form onSubmit={handleSubmit}>
           <h2>Log In</h2>
           <label>
@@ -38,7 +38,7 @@ export default function Login() {
             <Button data-testid="login" type="submit">Signup</Button>
           </label>
         </form>
-      </box>
+      </div>
     </div>
   )
 }

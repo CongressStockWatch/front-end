@@ -1,4 +1,7 @@
 import './App.scss';
+import { getTrades } from './store/quiverApi';
+import { getSP500 } from './store/yahooApi';
+import { useDispatch } from 'react-redux';
 import Footer from './components/footer';
 import Graph from './components/graph';
 import Table from './components/table';
@@ -6,15 +9,23 @@ import List from './components/repsList';
 import Login from './components/loginForm'
 import { When } from 'react-if';
 import { BrowserRouter, Route, Routes } from "react-router-dom";
-import { useContext } from 'react';
+import { useContext, useEffect } from 'react';
 import { AuthContext } from './context/auth';
 import Header from './components/header';
-import Box from '@mui/material/Box';
+// import Box from '@mui/material/Box';
 import Container from '@mui/material/Container';
 
 
 function App() {
+
   const { LoggedIn } = useContext(AuthContext);
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(getSP500());
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [])
+
   return (
     <Container id="browserRouter">
       <BrowserRouter>
@@ -33,12 +44,12 @@ function App() {
               <>
                 <Header id="header" />
                 <Graph class="graph" />
-                <Box>
-                  <List id="list" />
-                </Box>
-                <Box>
+                {/* <Box> */}
+                <List id="list" />
+                {/* </Box> */}
+                {/* <Box> */}
                   <Table id="table" />
-                </Box>
+                {/* </Box> */}
               </>
             } />
           </Routes>
