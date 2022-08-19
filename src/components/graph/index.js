@@ -97,9 +97,6 @@ const dataTwo = [
 
 export default function App() {
 
-
-
-
   return (
     <>
       <Container class="composedChart">

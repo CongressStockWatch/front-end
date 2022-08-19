@@ -6,10 +6,8 @@ import TableContainer from "@mui/material/TableContainer";
 import TableHead from "@mui/material/TableHead";
 import TableRow from "@mui/material/TableRow";
 import Paper from "@mui/material/Paper";
-
-const tableStyling = {
-  padding: "0px 0px"
-};
+import { red } from "@mui/material/colors";
+import { createTheme, ThemeProvider } from '@mui/material/styles' 
 
 function createData(name) {
   return { name };
@@ -17,34 +15,42 @@ function createData(name) {
 
 const rows = [
   createData("Nancy Pelosi"),
+  createData("Linsey Graham"),
+  createData("Chuck Schumer"),
+  createData("Lauren Boebert"),
+  createData("Alexandria Ocasio Cortez"),
+  createData("Rand Paul"),
+  createData("Thomas Massie"),
+  createData("Mitch McConnell"),
+  createData("Michael Bennet"),
+  createData("John Hickenlooper"),
+  createData("Marjorie Taylor Greene"),
   createData("Nancy Pelosi"),
-  createData("Nancy Pelosi"),
-  createData("Nancy Pelosi"),
-  createData("Nancy Pelosi"),
-  createData("Nancy Pelosi"),
-  createData("Nancy Pelosi"),
-  createData("Nancy Pelosi"),
-  createData("Nancy Pelosi"),
-  createData("Nancy Pelosi"),
-  createData("Nancy Pelosi"),
-  createData("Nancy Pelosi"),
-  createData("Nancy Pelosi"),
-  createData("Nancy Pelosi"),
-  createData("Nancy Pelosi"),
-  createData("Nancy Pelosi"),
-  createData("Nancy Pelosi"),
+  createData("Linsey Graham"),
+  createData("Chuck Schumer"),
+  createData("Lauren Boebert"),
+  createData("Alexandria Ocasio Cortez"),
+  createData("Rand Paul"),
+  createData("Thomas Massie"),
+  createData("Mitch McConnell"),
+  createData("Michael Bennet"),
+  createData("John Hickenlooper"),
+  createData("Marjorie Taylor Greene"),
 ];
+
+const darkTheme = createTheme({ palette: {mode: 'dark'}});
 
 export default function StylishTable() {
   return (
     <div>
+      <ThemeProvider theme={darkTheme}>
       <TableContainer
         component={Paper}
         sx={{
           border: "4px solid rgba(0,0,0,0.2)",
           padding: 1,
-          width: 200,
-          height: 200,
+          width: 400,
+          height: 400,
           "&::-webkit-scrollbar": {
             width: 20
           },
@@ -58,21 +64,10 @@ export default function StylishTable() {
           overflowX: "hidden"
         }}
       >
-        <Table
-          sx={{
-            tableLayout: "auto",
-            width: "max-content"
-            //height: "max-content"
-          }}
-        >
+        <Table>
           <TableHead>
             <TableRow>
-              <TableCell
-                sx={{
-                  ...tableStyling,
-                  width: 100
-                }}
-              >
+              <TableCell>
                 Representatives
               </TableCell>
             </TableRow>
@@ -80,11 +75,7 @@ export default function StylishTable() {
           <TableBody>
             {rows.map((row) => (
               <TableRow key={row.name}>
-                <TableCell
-                  sx={{
-                    ...tableStyling
-                  }}
-                >
+                <TableCell>
                   {row.name}
                 </TableCell>
               </TableRow>
@@ -93,6 +84,7 @@ export default function StylishTable() {
         </Table>
       </TableContainer>
       <br />
+      </ThemeProvider>
     </div>
   );
 }

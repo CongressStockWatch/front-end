@@ -1,11 +1,17 @@
+$light-color: beige;
+
 #tableContainer {
-  border: 1px solid beige;
+  border: 1px solid $light-color;
   border-radius: 12px;
   margin-bottom: 3%;
   padding: 2%;
-  background-color: beige;
+  background-color: $light-color;
 }
 
-.table {
-  color: white;
+.heading {
+  color: red;
+}
+
+.tableCell {
+  color: red;
 }

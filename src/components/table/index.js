@@ -72,26 +72,26 @@ function preventDefault(event) {
 export default function Orders() {
   return (
     <Container id="tableContainer">
-      <Table id="table" size="small">
+      <Table className='table' size="small">
         <TableHead>
-          <TableRow>
-            <TableCell>Stock</TableCell>
-            <TableCell>Date</TableCell>
-            <TableCell>Representative</TableCell>
-            <TableCell>Purchase/Sale</TableCell>
-            <TableCell>Amount</TableCell>
-            <TableCell>Party</TableCell>
+          <TableRow className='heading'>
+            <TableCell className='heading'>Stock</TableCell>
+            <TableCell className='heading'>Date</TableCell>
+            <TableCell className='heading'>Representative</TableCell>
+            <TableCell className='heading'>Purchase/Sale</TableCell>
+            <TableCell className='heading'>Amount</TableCell>
+            <TableCell className='heading'>Party</TableCell>
           </TableRow>
         </TableHead>
         <TableBody>
           {rows.map((row) => (
             <TableRow key={row.id}>
-              <TableCell>{row.stock}</TableCell>
-              <TableCell>{row.date}</TableCell>
-              <TableCell>{row.representative}</TableCell>
-              <TableCell>{row.purchase_sale}</TableCell>
-              <TableCell>{row.amount}</TableCell>
-              <TableCell>{row.party}</TableCell>
+              <TableCell className='tableCell'>{row.stock}</TableCell>
+              <TableCell className='tableCell'>{row.date}</TableCell>
+              <TableCell className='tableCell'>{row.representative}</TableCell>
+              <TableCell className='tableCell'>{row.purchase_sale}</TableCell>
+              <TableCell className='tableCell'>{row.amount}</TableCell>
+              <TableCell className='tableCell'>{row.party}</TableCell>
             </TableRow>
           ))}
         </TableBody>
