@@ -8,7 +8,8 @@ import TableContainer from "@mui/material/TableContainer";
 import TableHead from "@mui/material/TableHead";
 import TableRow from "@mui/material/TableRow";
 import Paper from "@mui/material/Paper";
-
+import { red } from "@mui/material/colors";
+import { createTheme, ThemeProvider } from '@mui/material/styles' 
 import { getTrades } from "../../store/quiverApi";
 
 
@@ -16,37 +17,17 @@ const tableStyling = {
   padding: "0px 0px"
 };
 
-// function createData(name) {
-//   return { name };
-// }
-
-// const rows = [
-//   createData("Nancy Pelosi"),
-//   createData("Nancy Pelosi"),
-//   createData("Nancy Pelosi"),
-//   createData("Nancy Pelosi"),
-//   createData("Nancy Pelosi"),
-//   createData("Nancy Pelosi"),
-//   createData("Nancy Pelosi"),
-//   createData("Nancy Pelosi"),
-//   createData("Nancy Pelosi"),
-//   createData("Nancy Pelosi"),
-//   createData("Nancy Pelosi"),
-//   createData("Nancy Pelosi"),
-//   createData("Nancy Pelosi"),
-//   createData("Nancy Pelosi"),
-//   createData("Nancy Pelosi"),
-//   createData("Nancy Pelosi"),
-//   createData("Nancy Pelosi"),
-// ];
+const darkTheme = createTheme({ palette: {mode: 'dark'}});
 
 export default function StylishTable() {
   let [render, setRender] = useState(false);
   let dispatch = useDispatch();
   let repData = useSelector(state => state.quiver.list.repsTrades) || [];
+  
   // if (repData.length > 0) {
   //   setRender(true);
   // }
+  
   console.log('repData: ', repData);
 
 
@@ -62,13 +43,16 @@ export default function StylishTable() {
 
   return (
     <div>
+
+      <ThemeProvider theme={darkTheme}>
+      <TableContainer
       {render && <TableContainer
         component={Paper}
         sx={{
           border: "4px solid rgba(0,0,0,0.2)",
           padding: 1,
-          width: 300,
-          height: 200,
+          width: 400,
+          height: 400,
           "&::-webkit-scrollbar": {
             width: 20
           },
@@ -82,21 +66,10 @@ export default function StylishTable() {
           overflowX: "hidden"
         }}
       >
-        <Table
-          sx={{
-            tableLayout: "auto",
-            width: "max-content"
-            //height: "max-content"
-          }}
-        >
+        <Table>
           <TableHead>
             <TableRow>
-              <TableCell
-                sx={{
-                  ...tableStyling,
-                  width: 100
-                }}
-              >
+              <TableCell>
                 Representatives
               </TableCell>
             </TableRow>
@@ -115,7 +88,8 @@ export default function StylishTable() {
             ))}
           </TableBody>
         </Table>
-      </TableContainer>}
+      </TableContainer>
+      </ThemeProvider>
     </div>
   );
 }

@@ -81,6 +81,9 @@ export default function Orders() {
 
 
   return (
+
+    //<Container id="tableContainer">
+     //<Table className='table' size="small">
     <TableContainer id="tableContainer"
       sx={{
         border: "4px solid rgba(0,0,0,0.2)",
@@ -101,13 +104,13 @@ export default function Orders() {
       }}>
       <Table id="table" size="small">
         <TableHead>
-          <TableRow>
-            <TableCell>Stock</TableCell>
-            <TableCell>Date</TableCell>
-            <TableCell>Representative</TableCell>
-            <TableCell>Purchase/Sale</TableCell>
-            <TableCell>Amount</TableCell>
-            <TableCell>Party</TableCell>
+          <TableRow className='heading'>
+            <TableCell className='heading'>Stock</TableCell>
+            <TableCell className='heading'>Date</TableCell>
+            <TableCell className='heading'>Representative</TableCell>
+            <TableCell className='heading'>Purchase/Sale</TableCell>
+            <TableCell className='heading'>Amount</TableCell>
+            <TableCell className='heading'>Party</TableCell>
           </TableRow>
         </TableHead>
         <TableBody>

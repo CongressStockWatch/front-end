@@ -103,6 +103,7 @@ const dataTwo = [
 
 export default function App() {
 
+
   // const [getTrades, setTrades ] = useState(getTrades());
 
 
