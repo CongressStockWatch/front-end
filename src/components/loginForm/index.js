@@ -17,12 +17,12 @@ export default function Login() {
 
 
   return (
-    <div className="page">
+    <div data-testid="form-div" className="page">
       <div className="form-container">
         <form onSubmit={handleSubmit}>
           <h2>Log In</h2>
           <label>
-            <span>Username</span>
+            <span data-testid="form-text">Username</span>
             <input data-testid="username" onChange={handleChange} required name="username" type="text" />
           </label>
 

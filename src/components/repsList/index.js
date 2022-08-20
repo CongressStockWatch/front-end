@@ -8,7 +8,6 @@ import TableContainer from "@mui/material/TableContainer";
 import TableHead from "@mui/material/TableHead";
 import TableRow from "@mui/material/TableRow";
 import Paper from "@mui/material/Paper";
-import { red } from "@mui/material/colors";
 import { createTheme, ThemeProvider } from '@mui/material/styles' 
 import { getTrades } from "../../store/quiverApi";
 
@@ -24,17 +23,10 @@ export default function StylishTable() {
   let dispatch = useDispatch();
   let repData = useSelector(state => state.quiver.list.repsTrades) || [];
   
-  // if (repData.length > 0) {
-  //   setRender(true);
-  // }
-  
   console.log('repData: ', repData);
 
 
   useEffect(() => {
-    // let getRepTrades = getTrades();
-    // console.log('get Trades useEffect');
-    // dispatch(getRepTrades);
     dispatch(getTrades());
     setRender(true);
     // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -45,8 +37,7 @@ export default function StylishTable() {
     <div>
 
       <ThemeProvider theme={darkTheme}>
-      <TableContainer
-      {render && <TableContainer
+      {render && <TableContainer data-testid="table-container" 
         component={Paper}
         sx={{
           border: "4px solid rgba(0,0,0,0.2)",
@@ -89,6 +80,7 @@ export default function StylishTable() {
           </TableBody>
         </Table>
       </TableContainer>
+}
       </ThemeProvider>
     </div>
   );

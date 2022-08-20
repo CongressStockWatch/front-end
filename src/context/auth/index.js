@@ -12,20 +12,16 @@ function Auth({ children }) {
   const [error, setError] = useState(null);
 
   const can = (capability) => {
-    // note the shorthand
+
     return user?.capabilities?.includes(capability);
   }
 
   const login = async (username, password) => {
 
-    // const basicEncoding = base64.encode(`${username}:${password}`);
     const config = {
       baseURL: 'https://congresswatch.herokuapp.com',
       url: '/signin',
       method: 'post',
-      // headers: {
-      //   'Authorization': `Basic ${basicEncoding}`
-      // },
       auth: {
         username,
         password,
@@ -72,8 +68,6 @@ function Auth({ children }) {
     if (token) {
       _validateToken(token);
     }
-
-    // missing:  after loading cookies how do we validate - and log back in?
   }, []);
 
   const values = {

@@ -7,63 +7,9 @@ import TableCell from '@mui/material/TableCell';
 import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import TableContainer from "@mui/material/TableContainer";
-import { useSelector, useDispatch } from 'react-redux';
+import { useSelector} from 'react-redux';
 
-// Generate Order Data
-// function createData(id, stock, date, representative, purchase_sale, amount, party) {
-//   return { id, stock, date, representative, purchase_sale, amount, party };
-// }
 
-// const rows = [
-//   createData(
-//     0,
-//     'AAPL',
-//     '16 Mar, 2019',
-//     'Elvis Presley',
-//     '173.03',
-//     '100',
-//     'R',
-//   ),
-//   createData(
-//     1,
-//     'AAPL',
-//     '16 Mar, 2019',
-//     'Elvis Presley',
-//     '173.03',
-//     '100',
-//     'R',
-//     866.99,
-//   ),
-//   createData(
-//     2, 
-//     'AAPL',
-//     '16 Mar, 2019',
-//     'Elvis Presley',
-//     '173.03',
-//     '100',
-//     'R', 
-//     100.81),
-//   createData(
-//     3,
-//     'AAPL',
-//     '16 Mar, 2019',
-//     'Elvis Presley',
-//     '173.03',
-//     '100',
-//     'R',
-//     654.39,
-//   ),
-//   createData(
-//     4,
-//     'AAPL',
-//     '16 Mar, 2019',
-//     'Elvis Presley',
-//     '173.03',
-//     '100',
-//     'R',
-//     212.79,
-//   ),
-// ];
 
 function preventDefault(event) {
   event.preventDefault();
@@ -79,11 +25,7 @@ export default function Orders() {
   console.log('HERE', quiverData.slice(0, 50));
   let repTradeData = quiverData.slice(0, 50);
 
-
   return (
-
-    //<Container id="tableContainer">
-     //<Table className='table' size="small">
     <TableContainer id="tableContainer"
       sx={{
         border: "4px solid rgba(0,0,0,0.2)",

@@ -24,40 +24,5 @@ const yahooReducer = createReducer({
   }
 });
 
-
-// let initialState = [
-//   {data: "dummy"}
-// ]
-
-
-
-// export function yahooReducer( state = initialState , action){
-//   let { type, payload } = action;
-//   switch(type){
-//     case 'SP500':
-//       return payload
-//     default:
-//       return state;
-//   }
-  
-// }
-
-
-
-
-
 export default yahooReducer;
-// export const setSP500 = (data) => {
-//   return{
-//     type: "SP500",
-//     payload: data
-//   }
-// }
 
-
-// const yahooResponse = await axios.get(`${API_SERVER}/yahoo`);
-//     const yahooData = yahooResponse.data;
-
-// rep trade and votes are different object
-//     const quiverResponse = await axios.get(`${API_SERVER}/quiver`);
-//     const quiverData = quiverResponse.data;

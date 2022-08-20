@@ -1,5 +1,5 @@
 import './App.scss';
-import { getTrades } from './store/quiverApi';
+
 import { getSP500 } from './store/yahooApi';
 import { useDispatch } from 'react-redux';
 import Footer from './components/footer';
@@ -12,7 +12,6 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 import { useContext, useEffect } from 'react';
 import { AuthContext } from './context/auth';
 import Header from './components/header';
-// import Box from '@mui/material/Box';
 import Container from '@mui/material/Container';
 
 
@@ -30,25 +29,25 @@ function App() {
     <Container id="browserRouter">
       <BrowserRouter>
         <When condition={!LoggedIn}>
-          <Login />
+          <Login data-testid="Login" />
         </When>
         <When condition={LoggedIn}>
           <Routes>
             <Route path="/" element={
               <>
-                <Header />
-                <Footer />
+                <Header data-testid="Header"/>
+                <Footer data-testid="Footer" />
               </>
             } />
             <Route path="/profile" element={
               <>
                 <Header id="header" />
-                <Graph class="graph" />
+                <Graph data-testid="Graph" class="graph" />
                 {/* <Box> */}
-                <List id="list" />
+                <List data-testid="List" id="list" />
                 {/* </Box> */}
                 {/* <Box> */}
-                  <Table id="table" />
+                  <Table data-testid="Table" id="table" />
                 {/* </Box> */}
               </>
             } />
