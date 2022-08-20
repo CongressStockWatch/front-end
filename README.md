@@ -28,6 +28,20 @@ The MVP of this project is:
   - this should download all dependencies needed to run the project
 
 
+### Admin Passwords to login to APP
+
+- **Username**: brady
+  - **Password**: pass123
+  
+- **Username**: abdinasir
+  - **Password**: pass123
+
+
+- **Username**: beau
+  - **Password**: pass123
+  
+
+
 #### `.env` requirements
 
 - `REACT_APP_SERVER`- **Deployed-Database-heroku**
