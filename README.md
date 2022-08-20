@@ -26,7 +26,17 @@ The MVP of this project is:
 ### Setup
 - Run an `npm i`  in the terminal 
   - this should download all dependencies needed to run the project
+###
+Admin Passwords to login to APP
 
+username: brady
+Password: pass123
+
+username: beau
+Password: pass123
+
+username: abdinasir
+Password: pass123
 
 #### `.env` requirements
 
