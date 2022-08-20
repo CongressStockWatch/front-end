@@ -30,15 +30,15 @@ The MVP of this project is:
 
 ### Admin Passwords to login to APP
 
-- username: brady
-  - Password: pass123
+- **Username**: brady
+  - **Password**: pass123
   
-- username: abdinasir
-  - Password: pass123
+- **Username**: abdinasir
+  - **Password**: pass123
 
 
-- username: beau
-  - Password: pass123
+- **Username**: beau
+  - **Password**: pass123
   
 
 
