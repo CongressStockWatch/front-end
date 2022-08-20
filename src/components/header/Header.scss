@@ -1,0 +1,19 @@
+$light-color: beige;
+
+.header {
+  height: fit-content;
+}
+
+.stack {
+  background-color: gray;
+  width: 100%;
+  height: max-content;
+  border: 2px solid $light-color;
+  border-radius: 5px;
+  margin-bottom: 20px;
+}
+
+.logo {
+  height: 200px;
+  width: 200px;
+}

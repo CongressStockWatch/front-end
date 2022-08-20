@@ -1,0 +1,14 @@
+#browserRouter {
+  background-color: black;
+  display: flex;
+  flex-direction:row;
+  flex-wrap: wrap;
+  justify-content:space-around;
+  font-family:Verdana, Geneva, Tahoma, sans-serif;
+}
+
+Header {
+  order: 1;
+  padding: 30px;
+  margin-bottom: 3%;
+}
